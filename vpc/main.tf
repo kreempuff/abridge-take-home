@@ -19,12 +19,4 @@ resource "google_compute_subnetwork" "subnets" {
   network       = google_compute_network.main.id
   ip_cidr_range = each.value.cidr
   region        = each.value.region
-
-  dynamic "secondary_ip_range" {
-    for_each = lookup(each.value, "secondary_ranges", [])
-    content {
-      range_name    = secondary_ip_range.value.name
-      ip_cidr_range = secondary_ip_range.value.cidr
-    }
-  }
 }

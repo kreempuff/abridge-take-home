@@ -9,10 +9,6 @@ variable "network_subnets" {
   type = map(object({
     region   = string
     cidr     = string
-    secondary_ranges = optional(list(object({
-      name = string
-      cidr = string
-    })))
   }))
 
   default = {
