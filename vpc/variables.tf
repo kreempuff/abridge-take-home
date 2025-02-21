@@ -10,15 +10,4 @@ variable "network_subnets" {
     region   = string
     cidr     = string
   }))
-
-  default = {
-    "subnet-1" = {
-      region   = "us-central1"
-      cidr     = "10.0.1.0/24"
-    }
-    "subnet-2" = {
-      region   = "us-east1"
-      cidr     = "10.0.2.0/24"
-    }
-  }
 }
