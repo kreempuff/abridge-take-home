@@ -9,6 +9,12 @@ resource "google_container_cluster" "main" {
   initial_node_count       = 1
 }
 
+resource "google_service_account" "main" {
+  for_each     = var.cluster_worker_node_pools
+  account_id   = each.key
+  display_name = each.key
+}
+
 resource "google_container_node_pool" "main" {
   for_each       = var.cluster_worker_node_pools
   cluster        = google_container_cluster.main.name
@@ -24,6 +30,7 @@ resource "google_container_node_pool" "main" {
   node_config {
     machine_type = each.value.machine_type
     disk_size_gb = each.value.disk_size_gb
+    service_account = google_service_account.main[each.key].email
 
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
