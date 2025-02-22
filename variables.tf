@@ -21,3 +21,12 @@ variable "network_worker_node_subnets" {
     cidr   = string
   }))
 }
+
+variable "cluster_name" {
+  description = "Name of the cluster. Will be used as a prefix for all resources in the cluster"
+}
+
+variable "cluster_location" {
+  description = "Region for the control nodes of the cluster"
+  type        = string
+}
