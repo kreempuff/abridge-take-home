@@ -15,7 +15,7 @@ variable "network_control_nodes_region" {
 
 variable "network_worker_node_subnets" {
   description = "Map of worker node subnets to create in the network. Key is the name of the subnet, value is a map with keys 'region' and 'cidr'"
-  default = {}
+  default     = {}
   type = map(object({
     region = string
     cidr   = string
@@ -31,7 +31,7 @@ variable "cluster_deletion_protection" {
   type        = bool
   # Defaulting to false for testing purposes
   # TODO: Set this to true to prevent accidental deletion of production clusters
-  default     = false
+  default = false
 }
 
 variable "cluster_location" {
@@ -41,13 +41,16 @@ variable "cluster_location" {
 
 variable "cluster_worker_node_pools" {
   type = map(object({
-    node_count   = number
     machine_type = string
     disk_size_gb = number
     # Whether the worker node pool should have an external IP address allocated, defaults to false
     public_pool = optional(bool)
     # List of zones to create worker nodes in
     zones = list(string)
+    autoscaling = optional(object({
+      min_node_count = number
+      max_node_count = number
+    }))
   }))
   description = "Map of worker node pools to create in the cluster"
 }
