@@ -30,3 +30,14 @@ variable "cluster_location" {
   description = "Region for the control nodes of the cluster"
   type        = string
 }
+
+variable "cluster_worker_node_pools" {
+  type = map(object({
+    node_count   = number
+    machine_type = string
+    disk_size_gb = number
+    # Whether the worker node pool should have an external IP address allocated, defaults to false
+    public_pool  = optional(bool)
+  }))
+  description = "Map of worker node pools to create in the cluster"
+}
