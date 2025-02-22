@@ -46,6 +46,8 @@ variable "cluster_worker_node_pools" {
     disk_size_gb = number
     # Whether the worker node pool should have an external IP address allocated, defaults to false
     public_pool = optional(bool)
+    # List of zones to create worker nodes in
+    zones = list(string)
   }))
   description = "Map of worker node pools to create in the cluster"
 }

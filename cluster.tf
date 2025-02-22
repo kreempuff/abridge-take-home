@@ -10,11 +10,12 @@ resource "google_container_cluster" "main" {
 }
 
 resource "google_container_node_pool" "main" {
-  for_each   = var.cluster_worker_node_pools
-  cluster    = google_container_cluster.main.name
-  name       = "${google_container_cluster.main.name}-${each.key}"
-  node_count = each.value.node_count
-  location   = var.cluster_location
+  for_each       = var.cluster_worker_node_pools
+  cluster        = google_container_cluster.main.name
+  name           = "${google_container_cluster.main.name}-${each.key}"
+  node_count     = each.value.node_count
+  location       = var.cluster_location
+  node_locations = each.value.zones
 
   network_config {
     enable_private_nodes = !coalesce(each.value.public_pool, false)
