@@ -17,13 +17,15 @@ We have to tell the GCP not to allocate an external IP address for each node in 
 According to the GCP documentation, networks are global resources, so that would make
 the most sense. There may be network latency issues that I haven't tested or researched.
 
-### Node pool subnetwork specification
+### Node pool subnetwork specification ✅
 
 Is the subnetwork for the cluster the same as the subnetwork for the node pool? or can they be different?
 
-If they can't be different, how do I specify the subnetwork for the node pool?
+If they can be different, how do I specify the subnetwork for the node pool?
 
 `network_config` and `additional_node_network_configs` looks like the fields I need to set, but the language isn't clear about whether the nodes are placed in that subnetwork or just additional network interfaces.
+
+Looks like they [can't be](https://stackoverflow.com/a/58032982/4773566). So the subnetwork for the cluster and the node pools must be the same.
 
 ## Errors
 
