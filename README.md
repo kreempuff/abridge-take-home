@@ -118,8 +118,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_connection_command"></a> [connection\_command](#output\_connection\_command) | n/a |
-| <a name="output_network_control_nodes_subnet_id"></a> [network\_control\_nodes\_subnet\_id](#output\_network\_control\_nodes\_subnet\_id) | n/a |
-| <a name="output_network_id"></a> [network\_id](#output\_network\_id) | n/a |
-| <a name="output_network_name"></a> [network\_name](#output\_network\_name) | n/a |
+| <a name="output_connection_command"></a> [connection\_command](#output\_connection\_command) | Command to write kubeconfig for the created cluster to your local machine. |
+| <a name="output_network_cluster_subnet_id"></a> [network\_cluster\_subnet\_id](#output\_network\_cluster\_subnet\_id) | ID of the subnet for the cluster. |
+| <a name="output_network_id"></a> [network\_id](#output\_network\_id) | ID of the network. |
+| <a name="output_network_name"></a> [network\_name](#output\_network\_name) | Name of the network. |
 <!-- END_TF_DOCS -->
