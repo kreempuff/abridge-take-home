@@ -1,0 +1,5 @@
+header-from: header.md
+formatter: "markdown table"
+output:
+  mode: replace
+  file: README.md
