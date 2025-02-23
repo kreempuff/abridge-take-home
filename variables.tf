@@ -3,18 +3,19 @@ variable "network_name" {
   type        = string
 }
 
-variable "network_control_nodes_cidr" {
-  description = "CIDR range for the control nodes subnet"
+variable "network_cluster_cidr" {
+  description = "CIDR range for the cluster subnet"
   type        = string
 }
 
-variable "network_control_nodes_region" {
-  description = "Region for the control nodes subnet"
+variable "network_cluster_region" {
+  description = "Region for the cluster subnet"
   type        = string
 }
 
 variable "cluster_name" {
   description = "Name of the cluster. Will be used as a prefix for all resources in the cluster"
+  type        = string
 }
 
 variable "cluster_deletion_protection" {
@@ -22,7 +23,7 @@ variable "cluster_deletion_protection" {
   type        = bool
   # Defaulting to false for testing purposes
   # TODO: Set this to true to prevent accidental deletion of production clusters
-  default = false
+  default     = false
 }
 
 variable "cluster_location" {
@@ -39,9 +40,11 @@ variable "cluster_worker_node_pools" {
     # List of zones to create worker nodes in
     zones = list(string)
     autoscaling = optional(object({
+      # Minimum number of nodes in the node pool. Defaults to 1
       min_node_count = number
+      # Maximum number of nodes in the node pool. Defaults to 3
       max_node_count = number
     }))
   }))
-  description = "Map of worker node pools to create in the cluster"
+  description = "Map of worker node pools to create in the cluster. The key is used as the name of the node pool."
 }

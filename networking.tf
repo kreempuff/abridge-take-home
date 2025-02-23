@@ -8,7 +8,7 @@ resource "google_compute_network" "main" {
 resource "google_compute_router" "router" {
   name    = "${var.network_name}-router"
   network = google_compute_network.main.id
-  region  = var.network_control_nodes_region
+  region  = var.network_cluster_region
 }
 
 resource "google_compute_router_nat" "nat" {
@@ -33,6 +33,6 @@ resource "google_compute_firewall" "main" {
 resource "google_compute_subnetwork" "control_nodes" {
   name          = "${var.network_name}-control-nodes"
   network       = google_compute_network.main.id
-  ip_cidr_range = var.network_control_nodes_cidr
-  region        = var.network_control_nodes_region
+  ip_cidr_range = var.network_cluster_cidr
+  region        = var.network_cluster_region
 }
