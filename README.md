@@ -69,3 +69,7 @@ kubectl run -it --rm --image ubuntu bash
 ```
 
 ## Contributing
+
+### Pre-requisites
+In addition to the pre-requisites above, you will need:
+ - [terraform-docs](https://terraform-docs.io/user-guide/introduction/) - `brew install terraform-docs`
