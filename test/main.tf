@@ -19,8 +19,8 @@ provider "google" {
 module "test" {
   source                       = "./.."
   network_name                 = "main"
-  network_control_nodes_cidr   = "10.0.0.0/22"
-  network_control_nodes_region = "us-central1"
+  network_cluster_cidr   = "10.0.0.0/22"
+  network_cluster_region = "us-central1"
   cluster_name                = "production-test"
   cluster_location            = "us-central1"
   cluster_deletion_protection = false
