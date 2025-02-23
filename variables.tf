@@ -13,15 +13,6 @@ variable "network_control_nodes_region" {
   type        = string
 }
 
-variable "network_worker_node_subnets" {
-  description = "Map of worker node subnets to create in the network. Key is the name of the subnet, value is a map with keys 'region' and 'cidr'"
-  default     = {}
-  type = map(object({
-    region = string
-    cidr   = string
-  }))
-}
-
 variable "cluster_name" {
   description = "Name of the cluster. Will be used as a prefix for all resources in the cluster"
 }
