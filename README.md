@@ -28,7 +28,7 @@ provider "google" {
 Import the module, configure and apply. An example configuration is provided in test/main.tf:
 
 ```hcl
-mmodule "test" {
+module "test" {
   source                       = "./.."
   network_name                 = "main"
   network_control_nodes_cidr   = "10.0.0.0/22"
