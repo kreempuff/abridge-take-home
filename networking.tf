@@ -30,8 +30,8 @@ resource "google_compute_firewall" "main" {
 }
 
 
-resource "google_compute_subnetwork" "control_nodes" {
-  name          = "${var.network_name}-control-nodes"
+resource "google_compute_subnetwork" "main" {
+  name          = "${var.network_name}-cluster"
   network       = google_compute_network.main.id
   ip_cidr_range = var.network_cluster_cidr
   region        = var.network_cluster_region

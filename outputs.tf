@@ -14,6 +14,6 @@ output "network_id" {
 }
 
 output "network_cluster_subnet_id" {
-  value       = google_compute_subnetwork.control_nodes.id
+  value       = google_compute_subnetwork.main.id
   description = "ID of the subnet for the cluster."
 }

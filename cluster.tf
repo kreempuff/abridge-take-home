@@ -2,7 +2,7 @@ resource "google_container_cluster" "main" {
   name                = var.cluster_name
   location            = var.cluster_location
   network             = google_compute_network.main.id
-  subnetwork          = google_compute_subnetwork.control_nodes.id
+  subnetwork          = google_compute_subnetwork.main.id
   deletion_protection = var.cluster_deletion_protection
 
   remove_default_node_pool = true
