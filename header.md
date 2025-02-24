@@ -1,5 +1,13 @@
 # Minimal Viable Kubernetes cluster GCP
 
+This module creates a minimal Kubernetes cluster in GCP. It deploys a VPC, a subnet for the cluster and workloads, and a GKE cluster with support for multiple node pools.
+
+## TOC
+
+- [Usage](#Usage)
+- [Contributing](#Contributing)
+- [Roadmap](#Roadmap)
+
 ## Usage
 
 ### Pre-requisites
@@ -73,3 +81,15 @@ kubectl run -it --rm --image ubuntu bash
 ### Pre-requisites
 In addition to the pre-requisites above, you will need:
  - [terraform-docs](https://terraform-docs.io/user-guide/introduction/) - `brew install terraform-docs`
+
+### Update README
+
+After making changes to the module or files included in the README, run the following command:
+
+```shell
+terraform-docs .
+```
+
+## Roadmap
+
+- [ ] Support [Workload Identity](https://cloud.google.com/kubernetes-engine/docs/concepts/workload-identity) for pods

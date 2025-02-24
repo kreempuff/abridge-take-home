@@ -1,6 +1,14 @@
 <!-- BEGIN_TF_DOCS -->
 # Minimal Viable Kubernetes cluster GCP
 
+This module creates a minimal Kubernetes cluster in GCP. It deploys a VPC, a subnet for the cluster and workloads, and a GKE cluster with support for multiple node pools.
+
+## TOC
+
+- [Usage](#Usage)
+- [Contributing](#Contributing)
+- [Roadmap](#Roadmap)
+
 ## Usage
 
 ### Pre-requisites
@@ -75,6 +83,18 @@ kubectl run -it --rm --image ubuntu bash
 In addition to the pre-requisites above, you will need:
  - [terraform-docs](https://terraform-docs.io/user-guide/introduction/) - `brew install terraform-docs`
 
+### Update README
+
+After making changes to the module or files included in the README, run the following command:
+
+```shell
+terraform-docs .
+```
+
+## Roadmap
+
+- [ ] Support [Workload Identity](https://cloud.google.com/kubernetes-engine/docs/concepts/workload-identity) for pods
+
 ## Requirements
 
 No requirements.
@@ -101,6 +121,7 @@ No modules.
 | [google_container_cluster.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster) | resource |
 | [google_container_node_pool.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool) | resource |
 | [google_service_account.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
+| [google_service_account_iam_member.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_iam_member) | resource |
 
 ## Inputs
 
