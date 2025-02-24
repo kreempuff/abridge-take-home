@@ -15,6 +15,16 @@ resource "google_service_account" "main" {
   display_name = each.key
 }
 
+# Grants the service account the necessary permissions to work with the cluster, supposedly
+# But it fails to apply and the worker nodes function without this 🤔
+# Mentions it here: https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-regional-cluster#setup-iam-service-account
+# resource "google_service_account_iam_member" "main" {
+#   for_each           = var.cluster_worker_node_pools
+#   role               = "roles/container.defaultNodeServiceAccount"
+#   service_account_id = google_service_account.main[each.key].id
+#   member             = "serviceAccount:${google_service_account.main[each.key].email}"
+# }
+
 resource "google_container_node_pool" "main" {
   for_each       = var.cluster_worker_node_pools
   cluster        = google_container_cluster.main.name
