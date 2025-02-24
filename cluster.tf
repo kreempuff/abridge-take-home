@@ -51,4 +51,8 @@ resource "google_container_node_pool" "main" {
       "https://www.googleapis.com/auth/cloud-platform"
     ]
   }
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
