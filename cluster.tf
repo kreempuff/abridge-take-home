@@ -45,6 +45,7 @@ resource "google_container_node_pool" "main" {
     machine_type    = each.value.machine_type
     disk_size_gb    = each.value.disk_size_gb
     service_account = google_service_account.main[each.key].email
+    image_type      = try(each.value.image_type, "cos_containerd")
 
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"

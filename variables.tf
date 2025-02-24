@@ -34,6 +34,8 @@ variable "cluster_location" {
 variable "cluster_worker_node_pools" {
   type = map(object({
     machine_type = string
+    # Image type to use for the worker nodes, defaults to Container-Optimized OS with containerd (cos_containerd)
+    image_type = optional(string)
     disk_size_gb = number
     # Whether the worker node pool should have an external IP address allocated, defaults to false
     public_pool = optional(bool)
